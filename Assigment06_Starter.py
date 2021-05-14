@@ -204,7 +204,7 @@ while(True):
     if strChoice.strip() == '1':  # Add a new Task
         # TODO: Add Code Here
         # Complete
-        # IO.input_press_to_continue(strStatus) # Removed for usability 
+        # IO.input_press_to_continue(strStatus) # Removed for usability
         data = IO.input_new_task_and_priority()
         Processor.add_data_to_list(task=data[0], priority=data[1], list_of_rows=lstTable)
         continue  # to show the menu
