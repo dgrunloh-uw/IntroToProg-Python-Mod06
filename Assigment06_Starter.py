@@ -17,13 +17,14 @@
 # Data ---------------------------------------------------------------------- #
 # Declare variables and constants
 strFileName = "ToDoFile.txt"  # The name of the data file
-objFile = None   # An object that represents a file
-dicRow = {}  # A row of data separated into elements of a dictionary {Task,Priority}
 lstTable = []  # A list that acts as a 'table' of rows
 strChoice = ""  # Captures the user option selection
-strTask = ""  # Captures the user task data
-strPriority = ""  # Captures the user priority data
 strStatus = ""  # Captures the status of an processing functions
+# objFile = None   # An object that represents a file
+# dicRow = {}  # A row of data separated into elements of a dictionary {Task,Priority}
+# strTask = ""  # Captures the user task data
+# strPriority = ""  # Captures the user priority data
+
 
 
 # Processing  --------------------------------------------------------------- #
