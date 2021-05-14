@@ -7,7 +7,10 @@
 # ChangeLog (Who,When,What):
 # RRoot,1.1.2030,Created started script
 # RRoot,1.1.2030,Added code to complete assignment 5
-# <Your Name>,<Date>,Modified code to complete assignment 6
+# David Grunloh,5.12.2021,Modified code to complete assignment 6
+# David Grunloh,5.12.2021,Added code to functions in processor class
+# David Grunloh,5.13.2021,Added code to functions in IO Class
+# David Grunloh,5.14.2021,Modified code to help with user experience
 # ---------------------------------------------------------------------------- #
 
 # Data ---------------------------------------------------------------------- #
@@ -20,6 +23,7 @@ strChoice = ""  # Captures the user option selection
 strTask = ""  # Captures the user task data
 strPriority = ""  # Captures the user priority data
 strStatus = ""  # Captures the status of an processing functions
+
 
 # Processing  --------------------------------------------------------------- #
 class Processor:
@@ -45,7 +49,7 @@ class Processor:
     @staticmethod
     def add_data_to_list(task, priority, list_of_rows):
         # TODO: Add Code Here!
-        # Done
+        # Complete
         row = {"Task": task, "Priority": priority}
         list_of_rows.append(row)
         print("Current Data in table:")
@@ -78,19 +82,20 @@ class Processor:
     @staticmethod
     def write_data_to_file(file_name, list_of_rows):
         # TODO: Add Code Here!
-        # Done
+        # Complete
         file = open(file_name, "w")
         for row in list_of_rows:
             file.write(row["Task"] + "," + row["Priority"] + "\n")
         file.close()
         return list_of_rows, 'Success'
 
+
 # Presentation (Input/Output)  -------------------------------------------- #
 class IO:
     """ Performs Input and Output tasks """
 
     @staticmethod
-    def print_menu_Tasks():
+    def print_menu_tasks():
         """  Display a menu of choices to the user
 
         :return: nothing
@@ -116,7 +121,7 @@ class IO:
         return choice
 
     @staticmethod
-    def print_current_Tasks_in_list(list_of_rows):
+    def print_current_tasks_in_list(list_of_rows):
         """ Shows the current Tasks in the list of dictionaries rows
 
         :param list_of_rows: (list) of rows you want to display
@@ -163,14 +168,15 @@ class IO:
 
 # Main Body of Script  ------------------------------------------------------ #
 
+
 # Step 1 - When the program starts, Load data from ToDoFile.txt.
 Processor.read_data_from_file(strFileName, lstTable)  # read file data
 
 # Step 2 - Display a menu of choices to the user
 while(True):
     # Step 3 Show current data
-    IO.print_current_Tasks_in_list(lstTable)  # Show current data in the list/table
-    IO.print_menu_Tasks()  # Shows menu
+    IO.print_current_tasks_in_list(lstTable)  # Show current data in the list/table
+    IO.print_menu_tasks()  # Shows menu
     strChoice = IO.input_menu_choice()  # Get menu option
     
     # Step 4 - Process user's menu choice
@@ -194,6 +200,7 @@ while(True):
         strChoice = IO.input_yes_no_choice("Save this data to file? (y/n) - ")
         if strChoice.lower() == "y":
             # TODO: Add Code Here!
+            # Complete
             # IO.input_press_to_continue(strStatus)
             Processor.write_data_to_file(file_name=strFileName, list_of_rows=lstTable)
         else:
@@ -205,6 +212,7 @@ while(True):
         strChoice = IO.input_yes_no_choice("Are you sure you want to reload data from file? (y/n) -  ")
         if strChoice.lower() == 'y':
             # TODO: Add Code Here!
+            # Complete
             # IO.input_press_to_continue(strStatus)
             Processor.read_data_from_file(strFileName, lstTable)  # read file data
         else:
@@ -213,4 +221,5 @@ while(True):
 
     elif strChoice == '5':  #  Exit Program
         print("Goodbye!")
+        IO.input_press_to_continue(strStatus)
         break   # and Exit
