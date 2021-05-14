@@ -10,6 +10,7 @@
 # David Grunloh,5.12.2021,Modified code to complete assignment 6
 # David Grunloh,5.12.2021,Added code to functions in processor class
 # David Grunloh,5.13.2021,Added code to functions in IO Class
+# David Grunloh,5.13.2021,Altered main to utilize functions
 # David Grunloh,5.14.2021,Modified code to help with user experience
 # ---------------------------------------------------------------------------- #
 
