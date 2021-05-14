@@ -12,6 +12,7 @@
 # David Grunloh,5.13.2021,Added code to functions in IO Class
 # David Grunloh,5.13.2021,Altered main to utilize functions
 # David Grunloh,5.14.2021,Modified code to help with user experience
+# David Grunloh,5.14.2021,Modified code to better document functions
 # ---------------------------------------------------------------------------- #
 
 # Data ---------------------------------------------------------------------- #
@@ -50,8 +51,13 @@ class Processor:
 
     @staticmethod
     def add_data_to_list(task, priority, list_of_rows):
-        # TODO: Add Code Here!
-        # Complete
+        """Adds data to the list
+
+        :param task: (string) with the task
+        :param priority: (string) with the priority
+        :param list_of_rows: (list) you want filled with file data:
+        :return: (list) of dictionary rows
+        """
         row = {"Task": task, "Priority": priority}
         list_of_rows.append(row)
         print("Current Data in table:")
@@ -62,8 +68,12 @@ class Processor:
 
     @staticmethod
     def remove_data_from_list(task, list_of_rows):
-        # TODO: Add Code Here!
-        # Complete
+        """Removes data from list
+
+        :param task: (string) with the task
+        :param list_of_rows: (list) of dictionary rows
+        :return: list_of_rows: (list) of dictionary rows
+        """
         item_removed = False  # Creating a boolean Flag
         row_number = 0
         for row in list_of_rows:
@@ -83,8 +93,12 @@ class Processor:
 
     @staticmethod
     def write_data_to_file(file_name, list_of_rows):
-        # TODO: Add Code Here!
-        # Complete
+        """Writes list data to the file
+
+        :param file_name: (string) with name of file:
+        :param list_of_rows: list_of_rows: (list) of dictionary rows
+        :return: list_of_rows: list_of_rows: (list) of dictionary rows
+        """
         file = open(file_name, "w")
         for row in list_of_rows:
             file.write(row["Task"] + "," + row["Priority"] + "\n")
@@ -155,16 +169,21 @@ class IO:
 
     @staticmethod
     def input_new_task_and_priority():
-        # TODO: Add Code Here!
-        # Complete
+        """Allows user to input a new task and priority
+
+        :return: task: (string) with the task
+        :return: priority: (string) with the priority
+        """
         task = str(input("What is the task? - ")).strip()
         priority = str(input("What is the priority? [high|low] - ")).strip()
         return task, priority
 
     @staticmethod
     def input_task_to_remove():
-        # TODO: Add Code Here!
-        # Complete
+        """Allows user to input a task to remove
+
+        :return: task: (string) with the task
+        """
         task = input("Which TASK would you like removed? - ")
         return task
 
@@ -185,7 +204,7 @@ while(True):
     if strChoice.strip() == '1':  # Add a new Task
         # TODO: Add Code Here
         # Complete
-        # IO.input_press_to_continue(strStatus)
+        # IO.input_press_to_continue(strStatus) # Removed for usability 
         data = IO.input_new_task_and_priority()
         Processor.add_data_to_list(task=data[0], priority=data[1], list_of_rows=lstTable)
         continue  # to show the menu
@@ -203,7 +222,7 @@ while(True):
         if strChoice.lower() == "y":
             # TODO: Add Code Here!
             # Complete
-            # IO.input_press_to_continue(strStatus)
+            # IO.input_press_to_continue(strStatus) # Removed for usability
             Processor.write_data_to_file(file_name=strFileName, list_of_rows=lstTable)
         else:
             IO.input_press_to_continue("Save Cancelled!")
@@ -215,7 +234,7 @@ while(True):
         if strChoice.lower() == 'y':
             # TODO: Add Code Here!
             # Complete
-            # IO.input_press_to_continue(strStatus)
+            # IO.input_press_to_continue(strStatus) # Removed for usability
             Processor.read_data_from_file(strFileName, lstTable)  # read file data
         else:
             IO.input_press_to_continue("File Reload  Cancelled!")
